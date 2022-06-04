@@ -12,6 +12,7 @@ export default function Home() {
     const [etanolValue, setEtanolValue] = useState('');
     const [gasValue, setGasValue] = useState('');
 
+
     function valorEtanol(price) {
 
         if(price.length > 0) {
@@ -28,7 +29,7 @@ export default function Home() {
             setGasValue('')
         }
     }
-    
+
     return (
 
         <View style={styles.container}>
@@ -37,18 +38,19 @@ export default function Home() {
                 style={styles.input}
                 placeholder="Qual o valor do Etanol:"
                 onChangeText={ (price) => valorEtanol(price) }
-                keyboardType={'numeric'}
+                keyboardType={'numbers-and-punctuation'}
             />
 
             <TextInput
                 style={styles.input}
                 placeholder="Qual o valor da Gasolina:"
                 onChangeText={ (price2) => valorGasolina(price2) }
-                keyboardType={'numeric'}
+                keyboardType={'numbers-and-punctuation'}
             />
 
             <Text style={styles.texto}>{etanolValue}</Text>
-            <Text style={styles.texto}>{gasValue}</Text>
+            <Text style={styles.texto}>{gasValue}</Text> 
+            <Text style={styles.texto}>{}</Text>
 
             <Button
                 title="Calcular"
