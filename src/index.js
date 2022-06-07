@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import {
-  View,
-  StyleSheet,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Modal,
-  Platform,
-  StatusBar
+  View, StyleSheet, Text,
+  Image, TextInput, TouchableOpacity,
+  Modal, Platform, StatusBar
 } from "react-native";
+
 
 export default function AppDesafio() {
   const [alcool, setAlcool] = useState();
@@ -19,17 +14,22 @@ export default function AppDesafio() {
 
   return (
     <View style={styles.container}>
-        <Image style={{top: -30, left: 100}} source={require('./pictures/logo.png')}></Image>
+
+      <Image style={{ top: -30, left: 100 }} source={require('./pictures/logo.png')}></Image>
       <StatusBar
-          backgroundColor="#212121"
-          barStyle="light-content"
-          translucent={false}
-        />
+        backgroundColor="#212121"
+        barStyle="light-content"
+        translucent={false}
+      />
+      
       <View style={styles.logoContainer}>
-        
+
         <Text style={styles.sectionTitle}>Qual a melhor opção?</Text>
+
       </View>
+
       <View style={styles.containerField}>
+
         <Text style={styles.text}>Álcool (preço por litro):</Text>
         <TextInput
           style={styles.input}
@@ -37,8 +37,11 @@ export default function AppDesafio() {
           value={alcool}
           keyboardType="numbers-and-punctuation"
         />
+
       </View>
+
       <View style={styles.containerField}>
+
         <Text style={styles.text}>Gasolina (preço por litro):</Text>
         <TextInput
           style={styles.input}
@@ -46,11 +49,15 @@ export default function AppDesafio() {
           value={gasolina}
           keyboardType="numbers-and-punctuation"
         />
+
       </View>
+
       <View style={styles.containerField}>
+
         <TouchableOpacity style={styles.button} onPress={() => setOpen(true)}>
           <Text style={styles.buttonText}>Calcular</Text>
         </TouchableOpacity>
+
       </View>
 
       <Modal visible={open} animationType="slide" transparent={true}>
@@ -59,8 +66,8 @@ export default function AppDesafio() {
           behavior={Platform.OS === "android" ? "" : "padding"}
         >
           <View style={styles.logoContainer}>
-              <Image style={{ top: -30 }} source={require('./pictures/gas.png')}></Image>
-            
+            <Image style={{ top: -30 }} source={require('./pictures/gas.png')}></Image>
+
             <Text style={styles.modalTitle}>
               {result < 0.7 ? "Compensa usar Álcool" : "Compensa usar Gasolina"}
             </Text>
